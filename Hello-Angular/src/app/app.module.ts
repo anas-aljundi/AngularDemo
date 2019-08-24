@@ -2,6 +2,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { TitleCasePipe } from './_pipes/title-case.pipe';
@@ -15,6 +16,10 @@ import { NewCourseFormComponent } from './new-course-form/new-course-form.compon
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostService } from './_services/post.service';
+import { appRoutes } from './navigation/routes';
+import { HomeComponent } from './navigation/home/home.component';
+import { ArchiveComponent } from './navigation/archive/archive.component';
+import { NotFoundComponent } from './navigation/not-found/not-found.component';
 
 @NgModule({
    declarations: [
@@ -28,13 +33,17 @@ import { PostService } from './_services/post.service';
       CourseComponent,
       NewCourseFormComponent,
       ChangePasswordComponent,
-      PostsComponent
+      PostsComponent,
+      HomeComponent,
+      ArchiveComponent,
+      NotFoundComponent
    ],
    imports: [
       BrowserModule,
       FormsModule,
       ReactiveFormsModule,
-      HttpClientModule
+      HttpClientModule,
+      RouterModule.forRoot(appRoutes)
    ],
    providers: [
       PostService
